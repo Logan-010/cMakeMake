@@ -1,0 +1,18 @@
+windows install.bat may have to be ran as administrator.
+
+also, on windows you may have to set the path manually if the script fails,
+
+type 'path' in the search bar
+
+open the first result 
+
+click enviorment variable scroll (top panel) to find path and click edit, now click new and paste the directory
+
+C:\cmakemake
+
+then click ok untill everything closes.
+
+done!
+
+
+Also to note, the default files contain c++ code, not c. so do not expect it to work with c or h++ without adding your own files.
