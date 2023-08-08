@@ -19,8 +19,30 @@ else
     echo "Directory created: $new_project_name"
 fi
 
-project_zip="cmake_default.tar.gz"
-tar -xzf "/home/$username/cmakemake/$project_zip" -C "$dir/$new_project_name"
+project_zip_cpp_h="cmake_default_cpp-h.tar.gz"
+project_zip_cpp_hpp="cmake_default_cpp-hpp.tar.gz"
+project_zip_c_h="cmake_default_c-h.tar.gz"
+project_zip_c_hpp="cmake_default_c-hpp.tar.gz"
+
+if [ "$2" == "cpp" ]; then
+    if [ "$3" == "h" ]; then
+        tar -xzf "/home/$username/cmakemake/$project_zip_cpp_h" -C "$dir/$new_project_name"
+    fi
+
+    if [ "$3" == "hpp" ]; then
+        tar -xzf "/home/$username/cmakemake/$project_zip_cpp_hpp" -C "$dir/$new_project_name"
+    fi
+fi
+
+if [ "$2" == "c" ]; then
+    if [ "$3" == "h" ]; then
+        tar -xzf "/home/$username/cmakemake/$project_zip_c_h" -C "$dir/$new_project_name"
+    fi
+
+    if [ "$3" == "hpp" ]; then
+        tar -xzf "/home/$username/cmakemake/$project_zip_c_hpp" -C "$dir/$new_project_name"
+    fi
+fi
 echo "Copied default files into $new_project_name"
 cd "$new_project_name"
 
