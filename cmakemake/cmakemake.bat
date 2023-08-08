@@ -18,8 +18,27 @@ if exist "%new_project_name%\" (
     echo Directory created: %new_project_name%
 )
 
-set "project_zip=cmake_default.tar.gz"
-tar -xzf "C:\cmakemake\%project_zip%" -C "%currentDir%\%new_project_name%"
+set "project_zip_cpp-h=cmake_default_cpp-h.tar.gz"
+set "project_zip_cpp-hpp=cmake_default_cpp-hpp.tar.gz"
+set "project_zip_c-h=cmake_default_c-h.tar.gz"
+set "project_zip_c-hpp=cmake_default_c-hpp.tar.gz"
+if "%~2"=="cpp" (
+    if "%~3"=="h" (
+        tar -xzf "C:\cmakemake\%project_zip_cpp-h%" -C "%currentDir%\%new_project_name%"
+    )
+    if "%~3"=="hpp" (
+        tar -xzf "C:\cmakemake\%project_zip_cpp-hpp%" -C "%currentDir%\%new_project_name%"
+    )
+)
+
+if "%~2"=="c" (
+    if "%~3"=="h" (
+        tar -xzf "C:\cmakemake\%project_zip_c-h%" -C "%currentDir%\%new_project_name%"
+    )
+    if "%~3"=="hpp" (
+        tar -xzf "C:\cmakemake\%project_zip_c-hpp%" -C "%currentDir%\%new_project_name%"
+    )
+)
 echo Copied default files into %new_project_name%
 cd "%new_project_name%"
 
